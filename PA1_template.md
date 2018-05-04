@@ -1,4 +1,4 @@
-#Reproducible Research: Peer Assessment 1  
+# Reproducible Research: Peer Assessment 1  
 
 
 ## Loading and preprocessing the data  
@@ -22,35 +22,7 @@ data$date <- as.Date(data$date, format="%Y-%m-%d")
 
 ```r
 library(ggplot2)
-```
-
-```
-## Find out what's changed in ggplot2 at
-## http://github.com/tidyverse/ggplot2/releases.
-```
-
-```r
 library(dplyr)
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 sums_byday <- summarise(group_by(data, date), total_steps = sum(steps, na.rm = TRUE))
 qplot(sums_byday$total_steps, binwidth=1000, xlab="total number of steps taken each day", ylab="Frequency using binwith 1000")
 ```
@@ -114,35 +86,6 @@ impute() function simply imputes missing value using user defined statistical me
 
 ```r
 library(Hmisc)
-```
-
-```
-## Loading required package: lattice
-```
-
-```
-## Loading required package: survival
-```
-
-```
-## Loading required package: Formula
-```
-
-```
-## 
-## Attaching package: 'Hmisc'
-```
-
-```
-## The following objects are masked from 'package:dplyr':
-## 
-##     src, summarize
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     format.pval, units
 ```
 
 Missing values in data set:

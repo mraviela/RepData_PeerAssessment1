@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>Loading and preprocessing the data</title>
+<title>Reproducible Research: Peer Assessment 1</title>
 
 <script type="text/javascript">
 window.onload = function() {
@@ -201,7 +201,7 @@ hr {
 </head>
 
 <body>
-<p>#Reproducible Research: Peer Assessment 1  </p>
+<h1>Reproducible Research: Peer Assessment 1</h1>
 
 <h2>Loading and preprocessing the data</h2>
 
@@ -220,30 +220,8 @@ data$date &lt;- as.Date(data$date, format=&quot;%Y-%m-%d&quot;)
 <h3>2. Histogram of the total number of steps taken each day</h3>
 
 <pre><code class="r">library(ggplot2)
-</code></pre>
-
-<pre><code>## Find out what&#39;s changed in ggplot2 at
-## http://github.com/tidyverse/ggplot2/releases.
-</code></pre>
-
-<pre><code class="r">library(dplyr)
-</code></pre>
-
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;
-</code></pre>
-
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag
-</code></pre>
-
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union
-</code></pre>
-
-<pre><code class="r">sums_byday &lt;- summarise(group_by(data, date), total_steps = sum(steps, na.rm = TRUE))
+library(dplyr)
+sums_byday &lt;- summarise(group_by(data, date), total_steps = sum(steps, na.rm = TRUE))
 qplot(sums_byday$total_steps, binwidth=1000, xlab=&quot;total number of steps taken each day&quot;, ylab=&quot;Frequency using binwith 1000&quot;)
 </code></pre>
 
@@ -294,29 +272,6 @@ maxsteps_record$interval
 <p>impute() function simply imputes missing value using user defined statistical method (mean, max, median). It’s default is median. On the other hand, aregImpute() allows mean imputation using additive regression, bootstrapping, and predictive mean matching.</p>
 
 <pre><code class="r">library(Hmisc)
-</code></pre>
-
-<pre><code>## Loading required package: lattice
-</code></pre>
-
-<pre><code>## Loading required package: survival
-</code></pre>
-
-<pre><code>## Loading required package: Formula
-</code></pre>
-
-<pre><code>## 
-## Attaching package: &#39;Hmisc&#39;
-</code></pre>
-
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     src, summarize
-</code></pre>
-
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     format.pval, units
 </code></pre>
 
 <p>Missing values in data set:</p>
